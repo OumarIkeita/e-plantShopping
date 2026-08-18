@@ -9,10 +9,10 @@ function ProductList({ onHomeClick }) {
     const [addedToCart, setAddedToCart] = useState({});
     const dispatch = useDispatch();
 
-    // Select items from Redux to show total quantity in the cart icon
     const cartItems = useSelector(state => state.cart.items);
     const totalQuantity = cartItems.reduce((total, item) => total + item.quantity, 0);
 
+    // UPDATED ARRAY: Now has 3 Categories and 9 Unique Plants
     const plantsArray = [
         {
             category: "Air Purifying Plants",
@@ -26,7 +26,16 @@ function ProductList({ onHomeClick }) {
             category: "Aromatic Fragrant Plants",
             plants: [
                 { name: "Lavender", image: "https://images.unsplash.com/photo-1611909023032-2d6b3134ecba?q=80&w=1074", description: "Calming scent.", cost: "$20" },
-                { name: "Jasmine", image: "https://images.unsplash.com/photo-1592729645009-b96d1e63d14b?q=80&w=1170", description: "Sweet fragrance.", cost: "$18" }
+                { name: "Jasmine", image: "https://images.unsplash.com/photo-1592729645009-b96d1e63d14b?q=80&w=1170", description: "Sweet fragrance.", cost: "$18" },
+                { name: "Rosemary", image: "https://cdn.pixabay.com/photo/2019/10/11/07/12/rosemary-4541241_1280.jpg", description: "Invigorating scent.", cost: "$15" }
+            ]
+        },
+        {
+            category: "Low Maintenance Plants",
+            plants: [
+                { name: "ZZ Plant", image: "https://images.unsplash.com/photo-1632207691143-643e2a9a9361?q=80&w=464", description: "Thrives in low light.", cost: "$25" },
+                { name: "Pothos", image: "https://cdn.pixabay.com/photo/2018/11/15/10/32/plants-3816945_1280.jpg", description: "Tolerates neglect.", cost: "$10" },
+                { name: "Aloe Vera", image: "https://cdn.pixabay.com/photo/2018/04/02/07/42/leaf-3283175_1280.jpg", description: "Requires minimal watering.", cost: "$14" }
             ]
         }
     ];
